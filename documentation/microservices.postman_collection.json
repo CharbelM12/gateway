@@ -642,12 +642,22 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/video",
+									"raw": "{{url}}/video?title=The&sort=true",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"video"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "The"
+										},
+										{
+											"key": "sort",
+											"value": "true"
+										}
 									]
 								}
 							},
@@ -852,6 +862,79 @@
 									],
 									"cookie": [],
 									"body": "[\n    {\n        \"title\": \"Breaking Bad\",\n        \"description\": \"A high school chemistry teacher turned methamphetamine manufacturer.\",\n        \"duration\": \"45 minutes\",\n        \"averageRating\": 4.8,\n        \"ageRestriction\": \"PG16\"\n    },\n    {\n        \"title\": \"Jurassic Park\",\n        \"description\": \"Dinosaurs escape from a theme park and wreak havoc.\",\n        \"duration\": \"2 hours\",\n        \"averageRating\": 4.7,\n        \"ageRestriction\": \"PG13\"\n    },\n    {\n        \"title\": \"Adventure Time\",\n        \"description\": \"A fun animated series about a boy and his magical dog.\",\n        \"duration\": \"25 minutes\",\n        \"averageRating\": 4.5,\n        \"ageRestriction\": \"G\"\n    },\n    {\n        \"title\": \"The Godfather\",\n        \"description\": \"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.\",\n        \"duration\": \"2 hours 55 minutes\",\n        \"averageRating\": 3.5,\n        \"ageRestriction\": \"PG18\"\n    }\n]"
+								},
+								{
+									"name": "search by title and sort by average rating",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/video?title=The&sort=true",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"video"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "The"
+												},
+												{
+													"key": "sort",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Content-Type, Authorization"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "475"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1db-/omTG18f9vYnsb4vv5glMzwJjB0\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 May 2024 20:46:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"title\": \"The Matrix\",\n        \"description\": \"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.\",\n        \"duration\": \"2h 16min\",\n        \"averageRating\": 4.5,\n        \"ageRestriction\": \"PG-13\"\n    },\n    {\n        \"title\": \"The Godfather\",\n        \"description\": \"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.\",\n        \"duration\": \"2 hours 55 minutes\",\n        \"averageRating\": 4.4,\n        \"ageRestriction\": \"PG18\"\n    }\n]"
 								}
 							]
 						},
