@@ -14,7 +14,7 @@ const routes = [
     url: "http://localhost:3002",
   },
   {
-    api: "/video/rating/:videoId",
+    api: "/video/rating/:id",
     method: "put",
     microservice: "video provider",
     isAuthenticated: true,
