@@ -1,0 +1,1652 @@
+{
+	"info": {
+		"_postman_id": "39e029e5-d5f1-40de-a6b5-2b51a46bb3ae",
+		"name": "microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29210119",
+		"_collection_link": "https://www.postman.com/charbelm/workspace/microservices/collection/29210119-39e029e5-d5f1-40de-a6b5-2b51a46bb3ae?action=share&source=collection_link&creator=29210119"
+	},
+	"item": [
+		{
+			"name": "idp",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"charbel1m@hotmail.com\",\r\n    \"password\":\"Password1234\",\r\n    \"firstName\":\"Charbel\",\r\n    \"lastName\":\"Mounayer\",\r\n    \"dateOfBirth\":\"2001-03-12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/signup",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"charbel1m@hotmail.com\",\r\n    \"password\":\"Password1234\",\r\n    \"firstName\":\"Charbel\",\r\n    \"lastName\":\"Mounayer\",\r\n    \"dateOfBirth\":\"2001-03-12\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/signup",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 16:24:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "email already exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"charbel1m@hotmail.com\",\r\n    \"password\":\"Password1234\",\r\n    \"firstName\":\"Charbel\",\r\n    \"lastName\":\"Mounayer\",\r\n    \"dateOfBirth\":\"2001-03-12\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/signup",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"signup"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-M18KGBQlW3fLhsTDWpxguTyYfLA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 16:24:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Email already exists.Please enter another one\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data=JSON.parse(responseBody)\r",
+									"postman.setGlobalVariable(\"accessToken\",data.accessToken)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"charbel1m@hotmail.com\",\r\n    \"password\":\"Password1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"charbel1m@hotmail.com\",\r\n    \"password\":\"Password1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "292"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"124-gMWCoCN4Q8NeM/nkQ95uhZKTbaI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 16:36:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjNjZjhiYTYwMWFjYTZmN2JiY2Q2ZDciLCJ1c2VyQWdlIjoyMywiaWF0IjoxNzE1MjcyNTY3LCJleHAiOjE3MTUyNzYxNjd9.ypwYxW8BHEtKEkDFKu-_9fZeGvQ1xjqxCBwB4OCrf2I\",\n    \"tokenExpiration\": \"2024-05-09T17:36:07.240Z\",\n    \"userId\": \"663cf8ba601aca6f7bbcd6d7\"\n}"
+						},
+						{
+							"name": "incorrect password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"charbel1m@hotmail.com\",\r\n    \"password\":\"Password123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-uvcfFjRjmJLU2MekiXpQ9YkS1CA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 16:36:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The credentials you have entered are incorrect\"\n}"
+						},
+						{
+							"name": "incorrect email",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"charbel2m@hotmail.com\",\r\n    \"password\":\"Password1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-uvcfFjRjmJLU2MekiXpQ9YkS1CA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 16:37:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The credentials you have entered are incorrect\"\n}"
+						}
+					]
+				},
+				{
+					"name": "view profile",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/user/profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "120"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"78-OpbYLP7SRFq/yubGSQ8bzOAGAmU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 16:39:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"email\": \"charbel1m@hotmail.com\",\n        \"firstName\": \"Charbel\",\n        \"lastName\": \"Mounayer\",\n        \"dateOfBirth\": \"2001-03-12T00:00:00.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "edit profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"email\": \"charbel1m@hotmail.com\",\r\n        \"firstName\": \"elie\",\r\n        \"lastName\": \"Mounayer\",\r\n        \"dateOfBirth\": \"2001-03-12T00:00:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"email\": \"charbel1m@hotmail.com\",\r\n        \"firstName\": \"elie\",\r\n        \"lastName\": \"Mounayer\",\r\n        \"dateOfBirth\": \"2002-03-12\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/user/profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"user",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 09 May 2024 17:01:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "video-provider",
+			"item": [
+				{
+					"name": "video",
+					"item": [
+						{
+							"name": "view videos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/video",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"video"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "without searching and sorting",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/video",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"video"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Content-Type, Authorization"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "735"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2df-dGubmVmeIfSj/l5QcLLdqAM62yA\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 May 2024 17:14:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"title\": \"Adventure Time\",\n        \"description\": \"A fun animated series about a boy and his magical dog.\",\n        \"duration\": \"25 minutes\",\n        \"averageRating\": 4.5,\n        \"ageRestriction\": \"G\"\n    },\n    {\n        \"title\": \"Breaking Bad\",\n        \"description\": \"A high school chemistry teacher turned methamphetamine manufacturer.\",\n        \"duration\": \"45 minutes\",\n        \"averageRating\": 4.8,\n        \"ageRestriction\": \"PG16\"\n    },\n    {\n        \"title\": \"Jurassic Park\",\n        \"description\": \"Dinosaurs escape from a theme park and wreak havoc.\",\n        \"duration\": \"2 hours\",\n        \"averageRating\": 4.7,\n        \"ageRestriction\": \"PG13\"\n    },\n    {\n        \"title\": \"The Godfather\",\n        \"description\": \"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.\",\n        \"duration\": \"2 hours 55 minutes\",\n        \"averageRating\": 3.5,\n        \"ageRestriction\": \"PG18\"\n    }\n]"
+								},
+								{
+									"name": "search by title",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/video?title=Adventure Time",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"video"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "Adventure Time"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Content-Type, Authorization"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "164"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"a4-+2J1rGoInoVj4Fa8YznLNj3/Eow\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 May 2024 17:15:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"title\": \"Adventure Time\",\n        \"description\": \"A fun animated series about a boy and his magical dog.\",\n        \"duration\": \"25 minutes\",\n        \"averageRating\": 4.5,\n        \"ageRestriction\": \"G\"\n    }\n]"
+								},
+								{
+									"name": "sorted by average rating",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/video?sort=true",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"video"
+											],
+											"query": [
+												{
+													"key": "sort",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Content-Type, Authorization"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "735"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2df-oPXXZcfBI7TOSWEO/d1PkyHtujk\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 May 2024 17:19:53 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"title\": \"Breaking Bad\",\n        \"description\": \"A high school chemistry teacher turned methamphetamine manufacturer.\",\n        \"duration\": \"45 minutes\",\n        \"averageRating\": 4.8,\n        \"ageRestriction\": \"PG16\"\n    },\n    {\n        \"title\": \"Jurassic Park\",\n        \"description\": \"Dinosaurs escape from a theme park and wreak havoc.\",\n        \"duration\": \"2 hours\",\n        \"averageRating\": 4.7,\n        \"ageRestriction\": \"PG13\"\n    },\n    {\n        \"title\": \"Adventure Time\",\n        \"description\": \"A fun animated series about a boy and his magical dog.\",\n        \"duration\": \"25 minutes\",\n        \"averageRating\": 4.5,\n        \"ageRestriction\": \"G\"\n    },\n    {\n        \"title\": \"The Godfather\",\n        \"description\": \"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.\",\n        \"duration\": \"2 hours 55 minutes\",\n        \"averageRating\": 3.5,\n        \"ageRestriction\": \"PG18\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "play video",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"rating\":2\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/video/play/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"video",
+												"play",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "6638a345abee3b18af4d6bef"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Content-Type, Authorization"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "33"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21-GIdnGafueXH/9HaMuK9TTdMiI4s\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 May 2024 19:01:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "https://example.com/jurassic-park"
+								},
+								{
+									"name": "forbidden error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"rating\":2\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/video/play/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"video",
+												"play",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "6638a428abee3b18af4d6bf0"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Content-Type, Authorization"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "23"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"17-bqIm6pxC4cx+ZoszvXxsClwgWw8\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 May 2024 19:09:48 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Forbidden\"\n}"
+								}
+							]
+						},
+						{
+							"name": "add rating",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"rating\":5\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/video/rating/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"video",
+												"rating",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "6638a428abee3b18af4d6bf0"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Content-Type, Authorization"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "0"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 May 2024 19:14:51 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "comment",
+					"item": [
+						{
+							"name": "add comment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"text\":\"great video\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/comment?id=6638a428abee3b18af4d6bf0",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"comment"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6638a428abee3b18af4d6bf0"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"text\":\"great video\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/comment?id=6638a428abee3b18af4d6bf0",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"comment"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "6638a428abee3b18af4d6bf0"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Content-Type, Authorization"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "0"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 May 2024 19:23:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "update comment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"text\":\"Great video\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/comment/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"comment",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "663d22975b2d5c9d2c884b48"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"text\":\"Great video\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/comment/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"comment",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "663d22975b2d5c9d2c884b48"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Content-Type, Authorization"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "0"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 May 2024 19:27:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "not allowed to update other users comments",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"text\":\"Great video\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/comment/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"comment",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "663d22975b2d5c9d2c884b48"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Content-Type, Authorization"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "56"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"38-LKdEzfIrNrZ7cL+UB5E+wNn8Oyc\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 May 2024 19:32:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"you are not allowed to update this comment\"\n}"
+								}
+							]
+						},
+						{
+							"name": "add reply",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{accessToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"text\":\"indeed great video\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/comment/reply/:id",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"comment",
+										"reply",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "663d22975b2d5c9d2c884b48"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"text\":\"indeed great video\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/comment/reply/:id",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"comment",
+												"reply",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "663d22975b2d5c9d2c884b48"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "html",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Content-Type, Authorization"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/html; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "0"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 May 2024 19:31:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "get comments",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/comment?id=6638a428abee3b18af4d6bf0",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"comment"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "6638a428abee3b18af4d6bf0"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Content-Type, Authorization"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "319"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"13f-+bV14kDhRA5ET1vuS2gDFCcovBc\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 09 May 2024 19:36:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"663d22975b2d5c9d2c884b48\",\n        \"userId\": \"663cf8ba601aca6f7bbcd6d7\",\n        \"videoId\": \"6638a428abee3b18af4d6bf0\",\n        \"text\": \"Great video\",\n        \"replies\": [\n            {\n                \"userId\": \"663d244bcf12eceea3a4ec82\",\n                \"text\": \"indeed great video\",\n                \"_id\": \"663d247f5b2d5c9d2c884b50\"\n            }\n        ],\n        \"createdAt\": \"2024-05-09T19:23:03.766Z\",\n        \"updatedAt\": \"2024-05-09T19:31:11.634Z\"\n    }\n]"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
