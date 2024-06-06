@@ -1,3 +1,5 @@
+const { stubTrue } = require("lodash");
+
 const routes = [
   {
     api: "/video",
@@ -75,6 +77,27 @@ const routes = [
     microservice: "IDP",
     isAuthenticated: true,
     url: "http://localhost:3001",
+  },
+  {
+    api: "/payment/initiate-payment",
+    method: "post",
+    microservice: "payment",
+    isAuthenticated: true,
+    url: "http://localhost:3003",
+  },
+  {
+    api: "/payment/execute-payment",
+    method: "post",
+    microservice: "payment",
+    isAuthenticated: true,
+    url: "http://localhost:3003",
+  },
+  {
+    api: "/payment/verify-payment",
+    method: "post",
+    microservice: "payment",
+    isAuthenticated: true,
+    url: "http://localhost:3003",
   },
 ];
 module.exports = routes;

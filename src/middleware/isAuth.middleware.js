@@ -13,6 +13,7 @@ module.exports = async (req, res, next) => {
       }
     );
     req.token = await generateAccessTokens(response.data);
+    console.log(response.data);
     req.userId = response.data.userId;
     next();
   } catch (error) {

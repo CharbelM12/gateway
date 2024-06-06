@@ -6,7 +6,7 @@ module.exports = {
   },
   tokens: {
     accessTokenSecret: process.env.ACCESS_TOKEN_SECRET,
-    accessTokenExpiry: "1h",
+    accessTokenExpiry: "3h",
   },
   timestamps: true,
   collections: {

@@ -4,14 +4,12 @@ const AuditTrailService = require("../auditTrail/auditTrail.service");
 const auditTrailService = new AuditTrailService();
 const express = require("express");
 const router = express.Router();
-const _ = require("lodash");
 const routes = require("./routes");
 
 routes.forEach((route) => {
   if (route.isAuthenticated) {
     router.use(`${route.api}`, isAuth);
   }
-
   let routerInstance = router.route(route.api);
   const method = route.method.toLowerCase();
 
@@ -47,6 +45,7 @@ async function globalRoutingFunction(req, res, next) {
     }
   });
   if (currentRouteObj) {
+    console.log(currentRouteObj);
     try {
       const response = await axios({
         method: req.method,

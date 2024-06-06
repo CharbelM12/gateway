@@ -1,4 +1,5 @@
 module.exports = (error, req, res, next) => {
+  console.log(error);
   const errorResponse = error.response.data.message;
   const response = {
     message: errorResponse || "Something went wrong",
